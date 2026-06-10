@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  background: #0c0c0c;
+  font-family: 'Kanit', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  color: #d7e2ea;
+}
+
+.hero-heading {
+  background: linear-gradient(180deg, #646973 0%, #bbccd7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.score-gradient {
+  background: linear-gradient(123deg, #18011f 7%, #b600a8 37%, #7621b0 72%, #be4c00 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: #0c0c0c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f1f24;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2a30;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* Spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin 1.4s linear infinite;
+}
+
+/* Soft pulse on processing */
+@keyframes softPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+.animate-soft-pulse {
+  animation: softPulse 1.6s ease-in-out infinite;
+}
+
+/* 2026 Custom Cursor Styles */
+@media (pointer: fine) {
+  body, 
+  a, 
+  button, 
+  input, 
+  textarea,
+  [role="button"] {
+    cursor: none !important;
+  }
+}
+
+/* Premium Footer Animations & Effects */
+.footer-blur {
+  background: rgba(12, 12, 12, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-blur::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    rgba(215, 226, 234, 0) 0%, 
+    rgba(182, 0, 168, 0.3) 25%, 
+    rgba(118, 33, 176, 0.4) 50%, 
+    rgba(190, 76, 0, 0.3) 75%, 
+    rgba(215, 226, 234, 0) 100%
+  );
+}
+
+.footer-blur::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 60px;
+  background: radial-gradient(circle, rgba(182, 0, 168, 0.08) 0%, rgba(118, 33, 176, 0) 70%);
+  pointer-events: none;
+  filter: blur(20px);
+}
+
+/* Aesthetic Link Underline Hover Effect */
+.footer-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.footer-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Developed by Hevin button shimmer */
+@keyframes borderShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hevin-dev-btn {
+  background: linear-gradient(120deg, rgba(182, 0, 168, 0.1), rgba(118, 33, 176, 0.05), rgba(190, 76, 0, 0.1));
+  background-size: 200% 200%;
+  border: 1px solid rgba(182, 0, 168, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.hevin-dev-btn:hover {
+  border-color: rgba(182, 0, 168, 0.6);
+  box-shadow: 
+    0 0 15px rgba(182, 0, 168, 0.2), 
+    0 0 2px rgba(182, 0, 168, 0.4), 
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  background-position: right center;
+  color: #ffffff;
+}
+
+/* Floating Sticky Glassmorphism Header */
+.header-glass {
+  background: rgba(12, 12, 12, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(215, 226, 234, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.header-glass::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    rgba(215, 226, 234, 0) 0%, 
+    rgba(182, 0, 168, 0.25) 30%, 
+    rgba(118, 33, 176, 0.3) 50%, 
+    rgba(190, 76, 0, 0.2) 70%, 
+    rgba(215, 226, 234, 0) 100%
+  );
+}
+
+.header-logo-container {
+  transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.header-logo-container:hover {
+  transform: scale(1.05);
+}
+
+.hevin-badge {
+  background: linear-gradient(123deg, rgba(182, 0, 168, 0.1) 7%, rgba(118, 33, 176, 0.1) 72%);
+  border: 1px solid rgba(182, 0, 168, 0.3);
+  box-shadow: 0 0 10px rgba(182, 0, 168, 0.1);
+}
+
+
